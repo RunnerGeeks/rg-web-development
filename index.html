@@ -10,11 +10,10 @@
     <style>
       .app {
           display: grid;
-          grid-template-columns: 1fr;
+          grid-template-columns: repeat(2, 1fr);
       }
 
       .first-div {
-          grid-column: 1 / span 2; /* Span both columns */
           background-color: lightblue;
           padding: 20px;
       }
@@ -22,6 +21,23 @@
       .second-div {
           background-color: lightgreen;
           padding: 20px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media  screen and (max-width: 480px) {
+        .logo {
+          display: none;
+        }
+
+        .first-div {
+            grid-column: 1/3;
+        }
+
+        .second-div {
+          grid-column: 1/3;
+          grid-template-columns: 1fr;
+        }
       }
   </style>
 
@@ -40,7 +56,7 @@
           <button id="counter" type="button"></button>
         </div>
         <p class="read-the-docs">
-          Click on the Vite and TypeScript logos to learn more
+          Runner Geeks Rulz!
         </p>
       </div>
       <div class="second-div" id="bookContainer">

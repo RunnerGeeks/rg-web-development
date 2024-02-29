@@ -18,10 +18,25 @@ function createBookCard(book) {
   author.classList.add('card-text');
   author.textContent = `Author: ${book.authors[0].name}`;
 
+  const image = document.createElement('img');
+  image.src = book.formats["image/jpeg"];
+  image.classList.add('w-image');
+
   // Add other book properties as needed (e.g., subjects, formats, etc.)
 
-  cardBody.appendChild(title);
-  cardBody.appendChild(author);
+  // Creamos el div para la imagen y para el text
+  const cardDivImage = document.createElement('div');
+  const cardDivText = document.createElement('div');
+
+  // Agregamos la imagen a su div
+  cardDivImage.appendChild(image);
+
+  //Agregamos el texto a su div
+  cardDivText.appendChild(title);
+  cardDivText.appendChild(author);
+
+  cardBody.appendChild(cardDivImage);
+  cardBody.appendChild(cardDivText);
   cardDiv.appendChild(cardBody);
 
   return cardDiv;
@@ -37,4 +52,4 @@ fantasyBooks.results.forEach((book) => {
 });
 
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+setupCounter(document.querySelector('#counter')!, fantasyBooks.results)
